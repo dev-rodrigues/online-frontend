@@ -59,6 +59,22 @@ export const ConteudoForm = styled.div`
 
 export const Tab = styled.div`
 
+  button {
+    border: 0;
+    border-radius: 2px;
+    height: 42px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #059b5c;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #059b5dd5;
+  }
+
 `;
 
 export const TabContent = styled.div`

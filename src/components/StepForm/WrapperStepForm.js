@@ -28,12 +28,12 @@ export class WrapperStepForm extends Component {
   };
 
   // voltar pro step anterior
-  backStep = () => {
+  prevStep = () => {
     const { step } = this.state;
     this.setState({
-      step: +1
-    })
-  }
+      step: step - 1
+    });
+  };
 
   // atualiza valor dos inputs
   handleChange = input =>  e => {

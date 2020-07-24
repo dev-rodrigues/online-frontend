@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Tab, TabContent } from './styles';
 
-export default class FormValidacao extends Component {
+export class FormValidacao extends Component {
 
   continue = e => {
     e.preventDefault();
@@ -23,10 +23,12 @@ export default class FormValidacao extends Component {
             type="email"
             placeholder="Informe seu email"></input>
 
-          <label for="">CPF:</label>
+          <label>CPF:</label>
           <input
             type="text"
-            placeholder="Informe seu cpf"></input>
+            placeholder="Informe seu cpf">
+
+          </input>
         </TabContent>
 
         <button
@@ -42,3 +44,5 @@ export default class FormValidacao extends Component {
       )
     }
   }
+
+export default FormValidacao;
