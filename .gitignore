@@ -403,3 +403,4 @@ Temporary Items
 # End of https://www.toptal.com/developers/gitignore/api/node,yarn,react,reactnative,visualstudiocode
 yarn.lock
 package.lock.json
+package-lock.json
