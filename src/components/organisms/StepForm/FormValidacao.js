@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 import { Tab, TabContent } from './styles';
-import Input from '../Input/Index';
-import Button from '../Button/Index';
+import Input from '../../atoms/Input/Index';
+import Button from '../../atoms/Button/Index';
 
 
 export class FormValidacao extends Component {

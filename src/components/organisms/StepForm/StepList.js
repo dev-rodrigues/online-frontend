@@ -6,17 +6,17 @@ export default class StepList extends Component {
     return (
       <Steps>
         <Step>
-        <span>1</span>
-        <p>Validação</p>
+          <span>1</span>
+          <p>Validação</p>
         </Step>
         <Step>
-        <span>2</span>
-        <p>Credenciais</p>
+          <span>2</span>
+          <p>Credenciais</p>
         </Step>
 
         <Step>
-        <span>3</span>
-        <p>Cadastro</p>
+          <span>3</span>
+          <p>Cadastro</p>
         </Step>
       </Steps>
     )

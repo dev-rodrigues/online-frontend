@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { Tab, TabContent } from './styles';
-import Button from '../Button/Index';
+import Button from '../../atoms/Button/Index';
 
 export default class FormRecaptcha extends Component {
 
