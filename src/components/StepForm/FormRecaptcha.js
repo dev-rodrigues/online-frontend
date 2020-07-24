@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Tab, TabContent, GRecaptcha } from './styles';
+import { Tab, TabContent } from './styles';
 
 export default class FormRecaptcha extends Component {
 
@@ -16,9 +16,12 @@ export default class FormRecaptcha extends Component {
           <h1>testar recaptcha</h1>
         </TabContent>
 
-        <button
-          onClick={this.continue}
-        >Continuar</button>
+        <div className="botoes">
+          <button
+            className="continue"
+            onClick={this.continue}
+          >Continuar</button>
+        </div>
 
       </Tab>
     )

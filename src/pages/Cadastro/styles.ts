@@ -14,6 +14,19 @@ export const Root = styled.div`
   font-family: 'Roboto', sans-serif;
 
 
+  @media (min-width: 768px) {
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .back {
+      margin-right: 10px;
+    }
+  }
+
   @media (max-width: 768px) {
     .content {
         padding: 30px;
@@ -21,6 +34,13 @@ export const Root = styled.div`
 
     .rodape {
         display: none;
+    }
+
+    .botoes {
+        width: 100%;
+        display: grid;
+        grid-gap: 5px;
+        width: 100%
     }
   }
 

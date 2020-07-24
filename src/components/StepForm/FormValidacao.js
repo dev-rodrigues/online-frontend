@@ -31,15 +31,19 @@ export class FormValidacao extends Component {
           </input>
         </TabContent>
 
-        <button
-          onClick={this.back}
-          >Retornar
-        </button>
+        <div className="botoes">
+          <button
+            className="back"
+            onClick={this.back}
+            >Retornar
+          </button>
 
-        <button
-          onClick={this.continue}
-          >Continuar
-        </button>
+          <button
+            className="continue"
+            onClick={this.continue}
+            >Continuar
+          </button>
+        </div>
       </Tab>
       )
     }
