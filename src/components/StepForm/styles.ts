@@ -42,7 +42,7 @@ export const ConteudoForm = styled.div`
     margin-bottom: 8px;
   }
 
-  input, select {
+  select {
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 2px;
@@ -54,7 +54,6 @@ export const ConteudoForm = styled.div`
   select {
     background-color: #fff;
   }
-
 `;
 
 export const Tab = styled.div`

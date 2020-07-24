@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 import { Tab, TabContent } from './styles';
+import Input from '../Input/Index';
+
 
 export class FormValidacao extends Component {
 
@@ -19,16 +21,18 @@ export class FormValidacao extends Component {
       <Tab>
         <TabContent>
           <label>Email:</label>
-          <input
+          <Input
             type="email"
-            placeholder="Informe seu email"></input>
+            placeholder="Informe seu email">
+          </Input>
 
           <label>CPF:</label>
-          <input
+
+          <Input
             type="text"
             placeholder="Informe seu cpf">
+          </Input>
 
-          </input>
         </TabContent>
 
         <div className="botoes">
