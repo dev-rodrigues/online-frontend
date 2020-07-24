@@ -54,9 +54,7 @@ export const ConteudoForm = styled.div`
 `;
 
 export const Tab = styled.div`
-  button:hover {
-    background-color: #059b5dd5;
-  }
+
 `;
 
 export const TabContent = styled.div`
@@ -65,9 +63,9 @@ export const TabContent = styled.div`
 `;
 
 export const Root = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px 0;
 `;
