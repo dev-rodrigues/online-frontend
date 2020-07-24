@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Background from '../../assets/cgtecpredio.jpg';
 
-export const Container = styled.body`
+export const Container = styled.div`
   height: 100vh;
   display: grid;
   grid-template-rows: auto 60px;
