@@ -3,6 +3,17 @@ import React, { Component } from 'react'
 import { Tab, TabContent } from './styles';
 
 export default class FormValidacao extends Component {
+
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
+
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();
+  };
+
   render() {
     return (
       <Tab>
@@ -17,7 +28,17 @@ export default class FormValidacao extends Component {
             type="text"
             placeholder="Informe seu cpf"></input>
         </TabContent>
+
+        <button
+          onClick={this.back}
+          >Retornar
+        </button>
+
+        <button
+          onClick={this.continue}
+          >Continuar
+        </button>
       </Tab>
-    )
+      )
+    }
   }
-}

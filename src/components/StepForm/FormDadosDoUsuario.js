@@ -3,6 +3,17 @@ import React, { Component } from 'react'
 import { Tab, TabContent } from './styles';
 
 export default class FormDadosDoUsuario extends Component {
+
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
+
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();
+  };
+
   render() {
     return (
       <Tab>
@@ -12,13 +23,19 @@ export default class FormDadosDoUsuario extends Component {
           <input placeholder="Informe o nome completo"></input>
 
           <label>Telefone Comercial:</label>
-          <input type="text"></input>
+          <input
+            type="text"
+            placeholder="Informe o seu telefone comercial"></input>
 
           <label>Telefone Celular:</label>
-          <input type="text"></input>
+          <input
+            type="text"
+            placeholder="Informe o seu telefone celular"></input>
 
           <label>Localização:</label>
-          <input placeholder="Informe sua localização no campus"></input>
+          <input
+            type="text"
+            placeholder="Informe sua localização no campus"></input>
 
           <label>Tipo de Cadastro</label>
           <select>
@@ -28,6 +45,17 @@ export default class FormDadosDoUsuario extends Component {
           </select>
 
         </TabContent>
+
+        <button
+          onClick={this.back}
+          >Retornar
+        </button>
+
+        <button
+          onClick={this.continue}
+          >Continuar
+        </button>
+
       </Tab>
     )
   }

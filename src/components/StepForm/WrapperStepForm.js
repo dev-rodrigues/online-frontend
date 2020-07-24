@@ -7,10 +7,10 @@ import Steps from './StepList';
 
 import { ConteudoForm } from './styles';
 
-export default class WrapperStepForm extends Component {
+export class WrapperStepForm extends Component {
 
   state = {
-    step: 3,
+    step: 1,
     cpf: '',
     email: '',
     nome: '',
@@ -23,9 +23,9 @@ export default class WrapperStepForm extends Component {
   nextStep = () => {
     const { step } = this.state;
     this.setState({
-      step: +1
-    })
-  }
+      step: step + 1
+    });
+  };
 
   // voltar pro step anterior
   backStep = () => {
@@ -52,7 +52,8 @@ export default class WrapperStepForm extends Component {
           <>
             <Steps />
             <ConteudoForm>
-              <FormRecaptcha/>
+              <FormRecaptcha
+                nextStep={this.nextStep}/>
             </ConteudoForm>
           </>
         )
@@ -61,7 +62,9 @@ export default class WrapperStepForm extends Component {
           <>
             <Steps />
             <ConteudoForm>
-              <FormValidacao />
+              <FormValidacao
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}/>
             </ConteudoForm>
           </>
         )
@@ -70,10 +73,14 @@ export default class WrapperStepForm extends Component {
           <>
             <Steps />
             <ConteudoForm>
-              <FormDadosDoUsuario/>
+              <FormDadosDoUsuario
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}/>
             </ConteudoForm>
           </>
         )
     }
   }
 }
+
+export default WrapperStepForm;

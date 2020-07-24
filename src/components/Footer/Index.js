@@ -7,10 +7,10 @@ export default class Index extends Component {
     return (
       <Footer className="rodape">
         <p>
-          <a href="">Site da COPPETEC</a>
+          <a href="#">Institucional</a>
         </p>
         <p>
-          <a href="">Ajuda</a>
+          <a href="http://www.coppetec.coppe.ufrj.br/site/contato.php" target="_blank">Ajuda</a>
         </p>
         <p>© 2020, GTIC - Fundação COPPETEC</p>
         <p>Versão 3.6.2</p>
