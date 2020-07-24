@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logoImg from '../assets/logocptec.png';
+import logoImg from '../../assets/logocptec.png';
 import { Container, Root, Content, Recuperacao, Footer } from './styles';
 
 const SignIn: React.FC = () => (

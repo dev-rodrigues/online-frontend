@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Background from '../assets/cgtecpredio.jpg';
+import Background from '../../assets/cgtecpredio.jpg';
 
 export const Container = styled.body`
   height: 100vh;
