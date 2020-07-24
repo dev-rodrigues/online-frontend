@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import { Tab, TabContent, GRecaptcha } from './styles';
 
 export default class FormRecaptcha extends Component {
   render() {
     return (
-      <div>
-        <h1>FormRecaptcha</h1>
-      </div>
+      <Tab>
+        <TabContent>
+          <h1>testar recaptcha</h1>
+        </TabContent>
+      </Tab>
     )
   }
 }

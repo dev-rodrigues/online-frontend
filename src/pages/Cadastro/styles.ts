@@ -13,6 +13,17 @@ export const Root = styled.div`
   background-size: cover;
   font-family: 'Roboto', sans-serif;
 
+
+  @media (max-width: 768px) {
+    .content {
+        padding: 30px;
+    }
+
+    .rodape {
+        display: none;
+    }
+  }
+
 `;
 
 export const Container = styled.div`

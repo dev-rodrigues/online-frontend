@@ -31,6 +31,41 @@ export const Step = styled.div`
   }
 `;
 
+export const ConteudoForm = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  input, select {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    height: 35px;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+
+  select {
+    background-color: #fff;
+  }
+
+`;
+
+export const Tab = styled.div`
+
+`;
+
+export const TabContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Root = styled.div`
     display: flex;
     flex-direction: row;

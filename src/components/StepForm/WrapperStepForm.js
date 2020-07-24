@@ -5,12 +5,12 @@ import FormValidacao from './FormValidacao';
 import FormDadosDoUsuario from './FormDadosDoUsuario';
 import Steps from './StepList';
 
-import { Root } from './styles';
+import { ConteudoForm } from './styles';
 
 export default class WrapperStepForm extends Component {
 
   state = {
-    step: 1,
+    step: 3,
     cpf: '',
     email: '',
     nome: '',
@@ -51,22 +51,27 @@ export default class WrapperStepForm extends Component {
         return (
           <>
             <Steps />
-            <FormRecaptcha/>
+            <ConteudoForm>
+              <FormRecaptcha/>
+            </ConteudoForm>
           </>
-
         )
       case(2):
         return (
           <>
             <Steps />
-            <FormValidacao />
+            <ConteudoForm>
+              <FormValidacao />
+            </ConteudoForm>
           </>
         )
       case(3):
         return (
           <>
             <Steps />
-            <FormDadosDoUsuario/>
+            <ConteudoForm>
+              <FormDadosDoUsuario/>
+            </ConteudoForm>
           </>
         )
     }
