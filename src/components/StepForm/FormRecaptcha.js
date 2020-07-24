@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+
 import { Tab, TabContent } from './styles';
+import Button from '../Button/Index';
 
 export default class FormRecaptcha extends Component {
 
@@ -17,10 +19,11 @@ export default class FormRecaptcha extends Component {
         </TabContent>
 
         <div className="botoes">
-          <button
+          <Button
             className="continue"
-            onClick={this.continue}
-          >Continuar</button>
+            onClick={this.continue}>
+            Continuar
+          </Button>
         </div>
 
       </Tab>

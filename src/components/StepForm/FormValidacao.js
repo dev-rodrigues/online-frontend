@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import { Tab, TabContent } from './styles';
 import Input from '../Input/Index';
+import Button from '../Button/Index';
 
 
 export class FormValidacao extends Component {
@@ -36,17 +37,17 @@ export class FormValidacao extends Component {
         </TabContent>
 
         <div className="botoes">
-          <button
+          <Button
             className="back"
             onClick={this.back}
             >Retornar
-          </button>
+          </Button>
 
-          <button
+          <Button
             className="continue"
             onClick={this.continue}
             >Continuar
-          </button>
+          </Button>
         </div>
       </Tab>
       )

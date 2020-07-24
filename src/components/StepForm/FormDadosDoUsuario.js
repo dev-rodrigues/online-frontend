@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 import { Tab, TabContent } from './styles';
+import Input from '../Input/Index';
+import Button from '../Button/Index';
 
 export default class FormDadosDoUsuario extends Component {
 
@@ -20,22 +22,17 @@ export default class FormDadosDoUsuario extends Component {
         <TabContent>
 
           <label>Nome:</label>
-          <input placeholder="Informe o nome completo"></input>
+          <Input placeholder="Informe o nome completo"></Input>
+
 
           <label>Telefone Comercial:</label>
-          <input
-            type="text"
-            placeholder="Informe o seu telefone comercial"></input>
+          <Input placeholder="Informe o seu telefone comercial"></Input>
 
           <label>Telefone Celular:</label>
-          <input
-            type="text"
-            placeholder="Informe o seu telefone celular"></input>
+          <Input placeholder="Informe o seu telefone celular"></Input>
 
           <label>Localização:</label>
-          <input
-            type="text"
-            placeholder="Informe sua localização no campus"></input>
+          <Input placeholder="Informe sua localização no campus"></Input>
 
           <label>Tipo de Cadastro</label>
           <select>
@@ -47,17 +44,17 @@ export default class FormDadosDoUsuario extends Component {
         </TabContent>
 
         <div className="botoes">
-          <button
+          <Button
             className="back"
             onClick={this.back}
             >Retornar
-          </button>
+          </Button>
 
-          <button
+          <Button
             className="continue"
             onClick={this.continue}
             >Concluir
-          </button>
+          </Button>
         </div>
 
       </Tab>
