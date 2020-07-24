@@ -10,7 +10,10 @@ const SignIn: React.FC = () => (
 
       <Content>
 
-        <img src={logoImg} alt="Coppetec"/>
+        <div className="logo">
+          <img src={logoImg} alt="Coppetec"/>
+        </div>
+
 
         <form>
 

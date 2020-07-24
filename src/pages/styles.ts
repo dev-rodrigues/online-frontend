@@ -40,7 +40,7 @@ export const Content = styled.div`
     border-radius: 4px;
     padding: 50px;
 
-    img {
+    .logo {
       display: flex;
       flex-direction: column;
       align-items: center;
