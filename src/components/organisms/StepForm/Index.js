@@ -50,7 +50,7 @@ export class WrapperStepForm extends Component {
       case(1):
         return (
           <>
-            <Steps />
+            <Steps posicao={step}/>
             <ConteudoForm>
               <FormRecaptcha
                 nextStep={this.nextStep}/>
@@ -60,7 +60,7 @@ export class WrapperStepForm extends Component {
       case(2):
         return (
           <>
-            <Steps />
+            <Steps posicao={step}/>
             <ConteudoForm>
               <FormValidacao
                 nextStep={this.nextStep}
@@ -71,7 +71,7 @@ export class WrapperStepForm extends Component {
       case(3):
         return (
           <>
-            <Steps />
+            <Steps posicao={step}/>
             <ConteudoForm>
               <FormDadosDoUsuario
                 nextStep={this.nextStep}
