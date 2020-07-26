@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import { Tab, TabContent } from './styles';
 import Input from '../../atoms/Input/Index';
 import Button from '../../atoms/Button/Index';
+import TabContent from '../../molecules/TabContent/Index';
 
 
 export class FormValidacao extends Component {
@@ -19,7 +19,7 @@ export class FormValidacao extends Component {
 
   render() {
     return (
-      <Tab>
+      <TabContent>
         <TabContent>
           <label>Email:</label>
           <Input
@@ -49,7 +49,7 @@ export class FormValidacao extends Component {
             >Continuar
           </Button>
         </div>
-      </Tab>
+      </TabContent>
       )
     }
   }

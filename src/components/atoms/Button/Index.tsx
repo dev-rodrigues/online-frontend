@@ -1,11 +1,11 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { HtmlHTMLAttributes } from 'react';
 
 import { Container } from './styles';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type DivProps = HtmlHTMLAttributes<HTMLButtonElement>;
 
-const Button: React.FC<ButtonProps> = ({ children, ...rest}) => (
-  <Container type="button" {...rest}>
+const Button: React.FC<DivProps> = ({ children, ...rest}) => (
+  <Container {...rest}>
     {children}
   </Container>
 );

@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 import FormRecaptcha from './FormRecaptcha';
 import FormValidacao from './FormValidacao';
 import FormDadosDoUsuario from './FormDadosDoUsuario';
-import Steps from './StepList';
 
-import { ConteudoForm } from './styles';
+import Steps from '../../molecules/StepList/Index';
+import SimpleForm from '../../molecules/SimpleForm/index';
 
-export class WrapperStepForm extends Component {
+class WrapperStepForm extends Component {
 
   state = {
     step: 1,
@@ -44,39 +44,38 @@ export class WrapperStepForm extends Component {
 
     const { step } = this.state;
     const { cpf, email, nome, telefone, celular, tipoDeCadastro } = this.state;
-    const values = { cpf, email, nome, telefone, celular, tipoDeCadastro };
 
     switch(step) {
       case(1):
         return (
           <>
-            <Steps posicao={step}/>
-            <ConteudoForm>
+            <Steps posicaoAtual={step}/>
+            <SimpleForm>
               <FormRecaptcha
                 nextStep={this.nextStep}/>
-            </ConteudoForm>
+            </SimpleForm>
           </>
         )
       case(2):
         return (
           <>
-            <Steps posicao={step}/>
-            <ConteudoForm>
+            <Steps posicaoAtual={step}/>
+            <SimpleForm>
               <FormValidacao
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}/>
-            </ConteudoForm>
+            </SimpleForm>
           </>
         )
       case(3):
         return (
           <>
-            <Steps posicao={step}/>
-            <ConteudoForm>
+            <Steps posicaoAtual={step}/>
+            <SimpleForm>
               <FormDadosDoUsuario
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}/>
-            </ConteudoForm>
+            </SimpleForm>
           </>
         )
     }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import { Tab, TabContent } from './styles';
 import Input from '../../atoms/Input/Index';
 import Button from '../../atoms/Button/Index';
+import TabContent from '../../molecules/TabContent/Index';
 
 export default class FormDadosDoUsuario extends Component {
 
@@ -18,7 +18,7 @@ export default class FormDadosDoUsuario extends Component {
 
   render() {
     return (
-      <Tab>
+      <TabContent>
         <TabContent>
 
           <label>Nome:</label>
@@ -57,7 +57,7 @@ export default class FormDadosDoUsuario extends Component {
           </Button>
         </div>
 
-      </Tab>
+      </TabContent>
     )
   }
 }

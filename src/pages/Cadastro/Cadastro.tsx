@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Root, Container, Content, Title } from './styles';
-import WrapperStepForm from '../../components/organisms/StepForm/Index';
+import WrapperStepForm from '../../components/organisms/SolicitacaoCadastro/Index';
 import Rodape from '../../components/organisms/Footer/Index';
 
 const Cadastro: React.FC = () => (

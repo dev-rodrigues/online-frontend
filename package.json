@@ -13,8 +13,8 @@
     "polished": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-recaptcha": "^2.1.0",
     "react-icons": "^3.10.0",
-    "react-recaptcha": "^2.3.10",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
     "typescript": "~3.7.2"
@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-recaptcha": "^2.3.3",
     "@types/styled-components": "^5.1.1",
     "prettier": "^2.0.5"
   }
