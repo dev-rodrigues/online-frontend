@@ -1,15 +1,17 @@
 import React from 'react';
-import GlobalStyle from './styles/global';
-import SignIn from './pages/Login/SignIn';
-import Cadastro from './pages/Cadastro/Cadastro';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-  return (
-    <>
-      <Cadastro />
-      <GlobalStyle />
-    </>
-  )
-}
+import GlobalStyles from './styles/global';
+import Routes from './routes/index';
+
+
+const  App: React.FC = () => (
+  <>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+    <GlobalStyles />
+  </>
+);
 
 export default App;
