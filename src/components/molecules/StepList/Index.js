@@ -10,17 +10,17 @@ export default class StepList extends Component {
         <Step
           posicao={1}
           posicaoAtual={this.props.posicaoAtual}
-          texto={"Validação"}/>
+          texto={"Validação"} />
 
         <Step
           posicao={2}
           posicaoAtual={this.props.posicaoAtual}
-          texto={"Credenciais"}/>
+          texto={"Credenciais"} />
 
         <Step
           posicao={3}
           posicaoAtual={this.props.posicaoAtual}
-          texto={"Cadastro"}/>
+          texto={"Cadastro"} />
       </Steps>
     )
   }
