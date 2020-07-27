@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 
 import Form from '../../components/molecules/IntermediateForm/Index';
 import SimpleTitle from '../../components/atoms/SimpleTitle/Index';
@@ -11,7 +11,9 @@ const RecuperacaoDeSenha: React.FC = () => {
 
   const [verificado, setVerificado] = useState(false);
 
-  function verificar(response: Response): void {
+  function verificar(event:FormEvent<HTMLFormElement>, response:RequestInfo): void {
+    event.preventDefault();
+
     if(response) {
       setVerificado(true);
     }
