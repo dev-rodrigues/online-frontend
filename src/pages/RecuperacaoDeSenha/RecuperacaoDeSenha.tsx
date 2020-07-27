@@ -1,35 +1,16 @@
 import React, { useState } from 'react';
 
 import Form from '../../components/molecules/IntermediateForm/Index';
-import SimpleTitle from '../../components/atoms/SimpleTitle/Index';
-import Input from '../../components/atoms/Input/Index';
-import Recaptcha from '../../components/atoms/Recaptcha/Index';
+import RecuperaSenha from '../../components/organisms/Recuperacao/RecuperacaoDeSenha/Index';
 
 import { } from './styles';
 
 const RecuperacaoDeSenha: React.FC = () => {
 
-  const [verificado, setVerificado] = useState(false);
-
-  function verificar(response: Response): void {
-    if(response) {
-      setVerificado(true);
-      console.log(verificado);
-    }
-  }
-
   return (
     <>
-      < Form >
-      <SimpleTitle
-        titulo='Recuperação de senha'
-        subtitulo='Confirme seu login para continuar' />
-
-      <label>Login</label>
-      <Input type='text' placeholder='Informe seu login' name='iptLogin' />
-
-      <Recaptcha verificar={verificar} />
-
+      <Form >
+        <RecuperaSenha />
       </Form >
     </>
   )
