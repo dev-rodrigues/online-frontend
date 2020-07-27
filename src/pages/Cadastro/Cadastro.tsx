@@ -7,7 +7,6 @@ import WrapperStepForm from '../../components/organisms/SolicitacaoCadastro/Inde
 import Form from '../../components/molecules/IntermediateForm/Index';
 
 const Cadastro: React.FC = () => (
-
   <Form>
     <SimpleTitle
       titulo={"Cadastro de Usuário"}

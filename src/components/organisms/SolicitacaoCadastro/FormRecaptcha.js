@@ -21,7 +21,6 @@ class FormRecaptcha extends Component {
   }
 
   verificar = response => {
-    console.log('cuco!')
     if (response) {
       this.setState({
         verificado: true
