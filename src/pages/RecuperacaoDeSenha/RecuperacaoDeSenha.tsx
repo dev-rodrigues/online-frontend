@@ -14,6 +14,7 @@ const RecuperacaoDeSenha: React.FC = () => {
   function verificar(response: Response): void {
     if(response) {
       setVerificado(true);
+      console.log(verificado);
     }
   }
 
