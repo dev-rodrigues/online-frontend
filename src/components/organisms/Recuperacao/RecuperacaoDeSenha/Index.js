@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Form} from '@unform/web';
 
 import SimpleTitle from '../../../../components/atoms/SimpleTitle/Index';
 import Input from '../../../../components/atoms/Input/Index';
@@ -7,7 +8,7 @@ import Button from '../../../atoms/Button/Index';
 import SimpleForm from '../../../molecules/SimpleForm/index';
 import Label from '../../../atoms/Label/Index';
 
-import {Teste} from './Styles';
+import {} from './styles';
 
 export default class Index extends Component {
 
@@ -23,17 +24,26 @@ export default class Index extends Component {
   render() {
     return (
       <SimpleForm>
-        <SimpleTitle
-          titulo='Recuperação de senha'
-          subtitulo='Confirme seu login para continuar' />
 
-        <Label>Login</Label>
-        <Input type='text' placeholder='Informe seu login' name='iptLogin' />
+          <SimpleTitle
+            titulo='Recuperação de senha'
+            subtitulo='Confirme seu login para continuar' />
+          <Form>
+            <Label>Login</Label>
+            <Input
+              name="login"
+              type='text'
+              placeholder='Informe seu login'
+              name='iptLogin' />
 
-        <Recaptcha verificar={this.verificar} />
+          </Form>
+
+          <Recaptcha verificar={this.verificar} />
 
         <Button>Enviar</Button>
+
       </SimpleForm>
+
     );
   }
 }
