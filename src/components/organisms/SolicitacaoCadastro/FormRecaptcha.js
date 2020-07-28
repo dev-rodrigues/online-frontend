@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Button from '../../atoms/Button/Index';
 import Recaptcha from '../../atoms/Recaptcha/Index';
-import TabContent from '../../molecules/TabContent/Index';
+
 
 class FormRecaptcha extends Component {
 
@@ -31,10 +31,10 @@ class FormRecaptcha extends Component {
   render() {
 
     return (
-      <TabContent>
-        <TabContent>
+      <div>
+        <div>
           <Recaptcha verificar={this.verificar}/>
-        </TabContent>
+        </div>
 
         <div className="botoes">
           <Button
@@ -44,7 +44,7 @@ class FormRecaptcha extends Component {
           </Button>
         </div>
 
-      </TabContent>
+      </div>
     )
   }
 }

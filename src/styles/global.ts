@@ -21,6 +21,33 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+    color: #fff;
+    border: 0;
+    border-radius: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .botoes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn.anterior {
+        margin-right: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .botoes {
+      width: 100%;
+      display: grid;
+      grid-gap: 5px;
+    }
+
+    .botoes button {
+      width: 100%;
+    }
   }
 
 `;

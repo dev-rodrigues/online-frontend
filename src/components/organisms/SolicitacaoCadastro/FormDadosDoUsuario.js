@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Form } from '@unform/web';
 
+import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
 import Button from '../../atoms/Button/Index';
-import TabContent from '../../molecules/TabContent/Index';
+import Combobox from '../../atoms/Combobox/Index';
 
 export default class FormDadosDoUsuario extends Component {
 
@@ -26,46 +27,48 @@ export default class FormDadosDoUsuario extends Component {
     const { values, handleChange } = this.props;
 
     return (
-      <TabContent>
-        <TabContent>
+      <div>
+        <div>
           <Form>
-            <label>Nome:</label>
+            <Label>Nome:</Label>
             <Input
               name="nome"
               placeholder="Informe o nome completo"
               onChange={handleChange('nome')}
               defaultValue={values.nome} />
 
-            <label>Telefone Comercial:</label>
+            <Label>Telefone Comercial:</Label>
             <Input
               name="telefone"
               placeholder="Informe o seu telefone comercial"
               onChange={handleChange('telefone')}
               defaultValue={values.telefone} />
 
-            <label>Telefone Celular:</label>
+            <Label>Telefone Celular:</Label>
             <Input
               name="celular"
               placeholder="Informe o seu telefone celular"
               onChange={handleChange('celular')}
               defaultValue={values.celular} />
 
-            <label>Localização:</label>
+            <Label>Localização:</Label>
             <Input
               name="localizacao"
               placeholder="Informe sua localização no campus"
               onChange={handleChange('localizacao')}
               defaultValue={values.localizacao} />
 
-            <label>Tipo de Cadastro</label>
-            <select>
+            <Label>Tipo de Cadastro</Label>
+
+
+            <Combobox>
               <option>Selecione...</option>
                 <option>Coordenador</option>
                 <option>Outros</option>
-            </select>
+            </Combobox>
           </Form>
 
-        </TabContent>
+        </div>
 
         <div className="botoes">
           <Button
@@ -80,7 +83,7 @@ export default class FormDadosDoUsuario extends Component {
           </Button>
         </div>
 
-      </TabContent>
+      </div>
     )
   }
 }

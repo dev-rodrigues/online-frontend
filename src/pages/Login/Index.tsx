@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {Form} from '@unform/web';
 
 import logoImg from '../../assets/logocptec.png';
@@ -24,7 +25,6 @@ const SignIn: React.FC = () => (
           <img src={logoImg} alt="Coppetec"/>
         </div>
 
-
         <Form onSubmit={() => console.log("cuco")}>
 
           <Label>Usuário</Label>
@@ -35,7 +35,7 @@ const SignIn: React.FC = () => (
 
           <Button>Entrar</Button>
 
-          <a href="/">Não tem acesso? Cadastre-se</a>
+          <Link to="/solicitacao-cadastro">Não tem acesso? Cadastre-se</Link>
 
         </Form>
 

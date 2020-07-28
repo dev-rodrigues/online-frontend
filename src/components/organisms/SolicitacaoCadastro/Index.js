@@ -4,8 +4,7 @@ import FormRecaptcha from './FormRecaptcha';
 import FormValidacao from './FormValidacao';
 import FormDadosDoUsuario from './FormDadosDoUsuario';
 
-import Steps from '../../molecules/StepList/Index';
-import SimpleForm from '../../molecules/SimpleForm/index';
+import Steps from '../../molecules/Steps/Index';
 
 class WrapperStepForm extends Component {
 
@@ -52,36 +51,36 @@ class WrapperStepForm extends Component {
         return (
           <>
             <Steps posicaoAtual={step}/>
-            <SimpleForm>
+            <div>
               <FormRecaptcha
                 nextStep={this.nextStep} />
-            </SimpleForm>
+            </div>
           </>
         )
       case(2):
         return (
           <>
             <Steps posicaoAtual={step}/>
-            <SimpleForm>
+            <div>
               <FormValidacao
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}
                 handleChange={this.handleChange}
                 values={values} />
-            </SimpleForm>
+            </div>
           </>
         )
       case(3):
         return (
           <>
             <Steps posicaoAtual={step}/>
-            <SimpleForm>
+            <div>
               <FormDadosDoUsuario
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}
                 handleChange={this.handleChange}
                 values={values} />
-            </SimpleForm>
+            </div>
           </>
         )
     }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Form } from '@unform/web';
 
+import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
 import Button from '../../atoms/Button/Index';
-import TabContent from '../../molecules/TabContent/Index';
 
 export class FormValidacao extends Component {
 
@@ -21,30 +21,28 @@ export class FormValidacao extends Component {
     const { values, handleChange } = this.props;
 
     return (
-      <TabContent>
-        <TabContent>
+      <div>
+        <div>
 
             <Form>
-              <label>Email:</label>
+              <Label>Email:</Label>
               <Input
                 name="teste"
                 type="email"
                 placeholder="Informe seu email"
                 onChange={handleChange('email')}
-                defaultValue={values.email}>
-              </Input>
+                defaultValue={values.email} />
 
-              <label>CPF:</label>
+              <Label>CPF:</Label>
               <Input
                 name="cpf"
                 type="text"
                 placeholder="Informe seu cpf"
                 onChange={handleChange('cpf')}
-                defaultValue={values.cpf}>
-              </Input>
+                defaultValue={values.cpf} />
             </Form>
 
-        </TabContent>
+        </div>
 
         <div className="botoes">
           <Button
@@ -60,7 +58,7 @@ export class FormValidacao extends Component {
           </Button>
         </div>
 
-      </TabContent>
+      </div>
       )
     }
   }
