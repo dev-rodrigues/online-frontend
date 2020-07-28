@@ -6,6 +6,11 @@ import TabContent from '../../molecules/TabContent/Index';
 
 export default class FormDadosDoUsuario extends Component {
 
+  solicitar = e => {
+    e.preventDefault();
+    console.log(this.props.values);
+  }
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -17,22 +22,36 @@ export default class FormDadosDoUsuario extends Component {
   };
 
   render() {
+    const { values, handleChange } = this.props;
+
     return (
       <TabContent>
         <TabContent>
 
           <label>Nome:</label>
-          <Input placeholder="Informe o nome completo"></Input>
+          <Input
+            placeholder="Informe o nome completo"
+            onChange={handleChange('nome')}
+            defaultValue={values.nome} />
 
 
           <label>Telefone Comercial:</label>
-          <Input placeholder="Informe o seu telefone comercial"></Input>
+          <Input
+            placeholder="Informe o seu telefone comercial"
+            onChange={handleChange('telefone')}
+            defaultValue={values.telefone} />
 
           <label>Telefone Celular:</label>
-          <Input placeholder="Informe o seu telefone celular"></Input>
+          <Input
+            placeholder="Informe o seu telefone celular"
+            onChange={handleChange('celular')}
+            defaultValue={values.celular} />
 
           <label>Localização:</label>
-          <Input placeholder="Informe sua localização no campus"></Input>
+          <Input
+            placeholder="Informe sua localização no campus"
+            onChange={handleChange('localizacao')}
+            defaultValue={values.localizacao} />
 
           <label>Tipo de Cadastro</label>
           <select>
@@ -51,8 +70,7 @@ export default class FormDadosDoUsuario extends Component {
           </Button>
 
           <Button
-            className="continue"
-            onClick={this.continue}
+            onClick={this.solicitar}
             >Concluir
           </Button>
         </div>

@@ -16,7 +16,8 @@ class WrapperStepForm extends Component {
     nome: '',
     telefone: '',
     celular: '',
-    tipoDeCadastro: ''
+    tipoDeCadastro: '',
+    localizacao: ''
   }
 
   // avança pro proximo step
@@ -43,7 +44,8 @@ class WrapperStepForm extends Component {
   render() {
 
     const { step } = this.state;
-    const { cpf, email, nome, telefone, celular, tipoDeCadastro } = this.state;
+    const { cpf, email, nome, telefone, celular, tipoDeCadastro, localizacao } = this.state;
+    const values  = {cpf, email, nome, telefone, celular, tipoDeCadastro, localizacao};
 
     switch(step) {
       case(1):
@@ -52,7 +54,7 @@ class WrapperStepForm extends Component {
             <Steps posicaoAtual={step}/>
             <SimpleForm>
               <FormRecaptcha
-                nextStep={this.nextStep}/>
+                nextStep={this.nextStep} />
             </SimpleForm>
           </>
         )
@@ -63,7 +65,9 @@ class WrapperStepForm extends Component {
             <SimpleForm>
               <FormValidacao
                 nextStep={this.nextStep}
-                prevStep={this.prevStep}/>
+                prevStep={this.prevStep}
+                handleChange={this.handleChange}
+                values={values} />
             </SimpleForm>
           </>
         )
@@ -74,7 +78,9 @@ class WrapperStepForm extends Component {
             <SimpleForm>
               <FormDadosDoUsuario
                 nextStep={this.nextStep}
-                prevStep={this.prevStep}/>
+                prevStep={this.prevStep}
+                handleChange={this.handleChange}
+                values={values} />
             </SimpleForm>
           </>
         )

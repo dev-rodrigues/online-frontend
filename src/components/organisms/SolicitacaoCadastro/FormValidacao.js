@@ -18,20 +18,25 @@ export class FormValidacao extends Component {
   };
 
   render() {
+    const { values, handleChange } = this.props;
+
     return (
       <TabContent>
         <TabContent>
           <label>Email:</label>
           <Input
             type="email"
-            placeholder="Informe seu email">
+            placeholder="Informe seu email"
+            onChange={handleChange('email')}
+            defaultValue={values.email}>
           </Input>
 
           <label>CPF:</label>
-
           <Input
             type="text"
-            placeholder="Informe seu cpf">
+            placeholder="Informe seu cpf"
+            onChange={handleChange('cpf')}
+            defaultValue={values.cpf}>
           </Input>
 
         </TabContent>
