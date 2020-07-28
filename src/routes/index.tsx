@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Login from '../pages/Login/SignIn';
+import Login from '../pages/Login/Login';
 
 const Routes: React.FC = () => (
   <Switch>
