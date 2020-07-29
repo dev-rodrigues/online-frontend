@@ -83,6 +83,12 @@ class WrapperStepForm extends Component {
             </div>
           </>
         )
+      default:
+        return (
+          <>
+            Error
+          </>
+        )
     }
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component, useState, FormEvent } from 'react'
+import React, { useState } from 'react'
 import { Form } from '@unform/web';
 
 import Background from '../../../components/atoms/Background/Index';

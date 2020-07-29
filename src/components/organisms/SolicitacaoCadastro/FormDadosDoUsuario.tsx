@@ -31,9 +31,10 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, handleCh
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback( async (data:object) => {
-    formRef.current?.setErrors({});
 
     try {
+      formRef.current?.setErrors({});
+
       const schema = Yup.object().shape({
         nome: Yup.string().required('O Nome obrigatório'),
         telefone: Yup.string().required('O telefone é obrigatório'),
@@ -41,7 +42,7 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, handleCh
         localizacao: Yup.string().required('A localização é obrigatória')
       });
 
-      await schema.validate(values, {
+      await schema.validate(data, {
         abortEarly: false,
       });
 

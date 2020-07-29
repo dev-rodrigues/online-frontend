@@ -7,8 +7,6 @@ import Content from '../../components/atoms/Content/Index';
 import Title from '../../components/atoms/Title/SimpleTitle/Index';
 import WrapperCadastro from '../../components/organisms/SolicitacaoCadastro/Index';
 
-import {} from './styles';
-
 const Cadastro: React.FC = () => (
   <Background>
     <Root>
