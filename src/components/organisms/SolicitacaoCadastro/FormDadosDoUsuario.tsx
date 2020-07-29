@@ -1,4 +1,8 @@
-import React, { useCallback, useRef } from 'react'
+import React, {
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup  from 'yup';
@@ -18,19 +22,20 @@ type FormDadosDoUsuarioProps = {
     celular: string,
     localizacao: string,
     tipoCadastro: string,
-    cpf: string,
-    email: string,
   };
   handleChange: Function;
   nextStep: Function;
   prevStep: Function;
 }
 
-const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, handleChange, prevStep}) => {
+const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep}) => {
 
   const formRef = useRef<FormHandles>(null);
+  const [tipoCadastro, setTipoCadastro] = useState('x')
 
   const handleSubmit = useCallback( async (data:object) => {
+
+    console.log(tipoCadastro)
 
     try {
       formRef.current?.setErrors({});
@@ -56,6 +61,11 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, handleCh
 
   function back(): void {
     prevStep();
+  }
+
+  function handleCombobox(event: React.ChangeEvent<HTMLSelectElement>): void {
+    console.log(event)
+    setTipoCadastro(event.currentTarget.value);
   }
 
   return (
@@ -87,12 +97,11 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, handleCh
               defaultValue={values.localizacao} />
 
             <Label>Tipo de Cadastro</Label>
-            <Combobox>
-              <option>Selecione...</option>
-                <option>Coordenador</option>
-                <option>Outros</option>
-            </Combobox>
-
+            <select value={tipoCadastro} onChange={handleCombobox}>
+              <option key="x" value="x">-- Selecione --</option>
+              <option key="C" value="C">COORDENADOR</option>
+              <option key="O" value="O">OUTROS</option>
+            </select>
         </div>
 
         <div className="botoes">

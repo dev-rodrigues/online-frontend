@@ -11,11 +11,6 @@ import Button from '../../atoms/Button/Index';
 
 type FormValidacaoDoUsuarioProps = {
   values: {
-    nome: string,
-    telefone: string,
-    celular: string,
-    localizacao: string,
-    tipoCadastro: string,
     cpf: string,
     email: string,
   };
