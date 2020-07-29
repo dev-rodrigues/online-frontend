@@ -5,4 +5,6 @@ export const Container = Styled.label`
   color: #555;
   font-weight: bold;
   margin-bottom: 8px;
+  display: flex;
+  flex: 1;
 `;
