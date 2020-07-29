@@ -49,5 +49,4 @@ export default createGlobalStyle`
       width: 100%;
     }
   }
-
 `;

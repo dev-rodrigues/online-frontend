@@ -9,6 +9,7 @@ export const Recuperacao = styled.div`
   a {
     color: #fff;
     font-size: 13px;
+    text-decoration: none;
   }
 
   a:hover {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Form} from '@unform/web';
+import { Form } from '@unform/web';
 
 import logoImg from '../../assets/logocptec.png';
 import { Recuperacao, Footer } from './styles';
@@ -42,18 +42,18 @@ const SignIn: React.FC = () => (
       </Content>
 
       <Recuperacao>
-        <a href="/">Esqueceu sua senha?</a>
-        <a href="/">Esqueceu seu login?</a>
+        <Link to="/esqueci-minha-senha">Esqueceu sua senha?</Link>
+        <Link to="/esqueci-meu-usuario">Esqueceu seu login?</Link>
       </Recuperacao>
 
     </Root>
 
     <Footer>
       <p>
-        <a href="/">Site da COPPETEC</a>
+        <a href="http://www.coppetec.coppe.ufrj.br/site/" target="_blank">Site da COPPETEC</a>
       </p>
       <p>
-        <a href="/">Ajuda</a>
+        <a href="http://www.coppetec.coppe.ufrj.br/site/contato.php" target="_blank">Ajuda</a>
       </p>
       <p>© 2020, GTIC - Fundação COPPETEC</p>
       <p>Versão 3.6.2</p>
