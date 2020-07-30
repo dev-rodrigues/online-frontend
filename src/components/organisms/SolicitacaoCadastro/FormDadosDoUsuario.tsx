@@ -14,7 +14,6 @@ import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
 import Button from '../../atoms/Button/Index';
 import Combobox from '../../atoms/Combobox/Index';
-import { type } from 'os';
 
 type FormDadosDoUsuarioProps = {
   values: {

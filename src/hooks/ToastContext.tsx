@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import {uuid} from 'uuidv4';
 
-import Toast from '../components/molecules/ToastContainr/Index';
+import Toast from '../components/molecules/ToastContainer/Index';
 
 
 interface ToastContextData {

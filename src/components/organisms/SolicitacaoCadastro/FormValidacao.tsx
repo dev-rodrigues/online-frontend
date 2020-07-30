@@ -50,7 +50,7 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
 
       formRef.current?.setErrors(errors);
     }
-  }, []);
+  }, [nextStep]);
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
