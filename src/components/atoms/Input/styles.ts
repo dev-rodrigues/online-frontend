@@ -36,8 +36,8 @@ export const Container = styled.div<ContainerProps>`
   }
 
   ${props => props.isErrored && css`
-    border-color: #c53030;
-    color: #c53030;
+    border-color: #F55145;
+    color: #F55145;
   `}
 
   ${props => props.isFocused && css`
@@ -64,11 +64,11 @@ export const Error = styled(Tooltip)`
   }
 
   span {
-    background: #c53030;
+    background: #F55145;
     color: #fff;
 
     &::before {
-      border-color: #c53030 transparent;
+      border-color: #F55145 transparent;
     }
   }
 `;
