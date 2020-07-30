@@ -6,14 +6,15 @@ import React, {
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup  from 'yup';
-// import { FiUser, FiLock} from 'react-icons';
 
 import getValidationsErrors from '../../../utils/getValidationsErrors';
+import { useToast } from '../../../hooks/ToastContext';
 
 import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
 import Button from '../../atoms/Button/Index';
 import Combobox from '../../atoms/Combobox/Index';
+import { type } from 'os';
 
 type FormDadosDoUsuarioProps = {
   values: {
@@ -24,48 +25,63 @@ type FormDadosDoUsuarioProps = {
     tipoCadastro: string,
   };
   handleChange: Function;
-  nextStep: Function;
   prevStep: Function;
 }
 
 const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep}) => {
 
+  const [tipoCadastro, setTipoCadastro] = useState('x');
+
   const formRef = useRef<FormHandles>(null);
-  const [tipoCadastro, setTipoCadastro] = useState('x')
+
+  const { addToast } = useToast();
 
   const handleSubmit = useCallback( async (data:object) => {
-
-    console.log(tipoCadastro)
-
     try {
+
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
         nome: Yup.string().required('O Nome obrigatório'),
         telefone: Yup.string().required('O telefone é obrigatório'),
         celular: Yup.string().required('O celular é obrigatório'),
-        localizacao: Yup.string().required('A localização é obrigatória')
+        localizacao: Yup.string().required('A localização é obrigatória'),
       });
 
-      await schema.validate(data, {
+      if (tipoCadastro === 'x') {
+        throw new Error('erro');
+      }
+
+      await schema.validate(data,  {
         abortEarly: false,
       });
 
     } catch(err) {
 
-      const errors = getValidationsErrors(err);
+      if (err instanceof Yup.ValidationError ) {
+        const errors = getValidationsErrors(err);
+        formRef.current?.setErrors(errors);
+      } else {
+        addToast(
+          {
+            type: 'error',
+            title: "Erro na solicitação",
+            description: 'Informe o tipo de cadastro'
+          }
+        );
+      }
 
-      formRef.current?.setErrors(errors);
+
     }
+
+  }, [tipoCadastro, addToast]);
+
+  const handleCombobox = useCallback( async (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTipoCadastro(event.currentTarget.value);
   }, []);
 
   function back(): void {
     prevStep();
-  }
-
-  function handleCombobox(event: React.ChangeEvent<HTMLSelectElement>): void {
-    console.log(event)
-    setTipoCadastro(event.currentTarget.value);
   }
 
   return (
@@ -97,11 +113,11 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
               defaultValue={values.localizacao} />
 
             <Label>Tipo de Cadastro</Label>
-            <select value={tipoCadastro} onChange={handleCombobox}>
-              <option key="x" value="x">-- Selecione --</option>
+            <Combobox name="tipoCadastro" onChange={handleCombobox} >
+              <option key="x" value="x">--Selecione--</option>
               <option key="C" value="C">COORDENADOR</option>
               <option key="O" value="O">OUTROS</option>
-            </select>
+            </Combobox>
         </div>
 
         <div className="botoes">
