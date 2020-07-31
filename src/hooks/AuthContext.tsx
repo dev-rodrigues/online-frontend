@@ -1,6 +1,7 @@
 import React, {
   createContext,
   useCallback,
+  useState,
 } from 'react';
 
 import api from '../services/api';
@@ -15,9 +16,18 @@ interface AuthContextData {
   login(credentials: LoginCredentials): Promise<void>,
 }
 
+interface AuthState {
+  token: string;
+  user: object;
+}
+
 export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
+
+  // const [data, setData] = useState<AuthState>(() => {
+
+  // });
 
   const login = useCallback( async ( {email, senha} ) => {
 
@@ -26,7 +36,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       senha
     });
 
-    console.log(response.data);
+    const { authorization } = response.headers;
+    localStorage.setItem('@coppetec:token', authorization);
 
   }, []);
 
