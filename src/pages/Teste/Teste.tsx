@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from '@unform/web';
 
 import Background from '../../components/atoms/Background/Index';
 import Root from '../../components/atoms/Root/Index';
@@ -8,20 +9,21 @@ import InputCpf from '../../components/atoms/InputCpf/InputCpf'
 
 
 const Teste: React.FC = () => (
+  <Form onSubmit={() => console.log()}>
+    <Background>
 
-  <Background>
+      <Root className="root">
 
-    <Root className="root">
+        <Content className="content">
 
-      <Content className="content">
+          <InputCpf name="cpf"/>
 
-        <InputCpf name="cpf"/>
+        </Content>
 
-      </Content>
+      </Root>
 
-    </Root>
-
-  </Background>
+    </Background>
+  </Form>
 );
 
 export default Teste;

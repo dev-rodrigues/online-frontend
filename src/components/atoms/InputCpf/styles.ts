@@ -16,7 +16,7 @@ export const Container = styled.div<ContainerProps>`
   padding: 0 16px;
   font-size: 16px;
   display: flex;
-  width: 130px;
+  width: 152px;
 
   align-content: center;
   color: #375f9a;
@@ -26,7 +26,8 @@ export const Container = styled.div<ContainerProps>`
   }
 
   input {
-    flex: 1;
+    /* flex: 1; */
+    width: 94px;
     background: transparent;
     border: 0;
 
@@ -51,5 +52,24 @@ export const Container = styled.div<ContainerProps>`
 
   svg {
     margin-right: 16px;
+  }
+`;
+
+export const Error = styled(Tooltip)`
+  height: 20px;
+  margin-left: 10px;
+  margin-top: 5px;
+
+  svg {
+    margin: 0;
+  }
+
+  span {
+    background: #F55145;
+    color: #fff;
+
+    &::before {
+      border-color: #F55145 transparent;
+    }
   }
 `;

@@ -7,6 +7,7 @@ import getValidationsErrors from '../../../utils/getValidationsErrors';
 
 import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
+import InputCpf from '../../atoms/InputCpf/InputCpf';
 import Button from '../../atoms/Button/Index';
 
 type FormValidacaoDoUsuarioProps = {
@@ -29,6 +30,8 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
   }
 
   const handleSubmit = useCallback( async (data:object) => {
+
+    console.log(data);
 
     try {
       formRef.current?.setErrors({});
@@ -65,12 +68,12 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
             defaultValue={values.email} />
 
           <Label>CPF:</Label>
-          <Input
+          <InputCpf
             name="cpf"
             type="text"
-            placeholder="Informe seu cpf"
             onChange={handleChange('cpf')}
             defaultValue={values.cpf} />
+
         </div>
 
         <div className="botoes">
