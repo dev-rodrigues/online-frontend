@@ -6,6 +6,7 @@ import Root from '../../components/atoms/Root/Index';
 import Content from '../../components/atoms/Content/Index';
 
 import InputCpf from '../../components/atoms/InputCpf/InputCpf'
+import InputCnpj from '../../components/atoms/InputCnpj/InputCnpj';
 
 
 const Teste: React.FC = () => (
@@ -17,6 +18,7 @@ const Teste: React.FC = () => (
         <Content className="content">
 
           <InputCpf name="cpf"/>
+          <InputCnpj name="cnpj" />
 
         </Content>
 
