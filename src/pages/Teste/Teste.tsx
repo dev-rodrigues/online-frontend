@@ -7,6 +7,7 @@ import Content from '../../components/atoms/Content/Index';
 
 import InputCpf from '../../components/atoms/InputCpf/InputCpf'
 import InputCnpj from '../../components/atoms/InputCnpj/InputCnpj';
+import InputMonetario from '../../components/atoms/InputMonetario/InputMonetario';
 
 
 const Teste: React.FC = () => (
@@ -19,6 +20,7 @@ const Teste: React.FC = () => (
 
           <InputCpf name="cpf"/>
           <InputCnpj name="cnpj" />
+          <InputMonetario name="money" />
 
         </Content>
 
