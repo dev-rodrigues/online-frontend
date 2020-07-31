@@ -7,7 +7,7 @@ import Content from '../../components/atoms/Content/Index';
 
 import InputCpf from '../../components/atoms/InputCpf/InputCpf'
 import InputCnpj from '../../components/atoms/InputCnpj/InputCnpj';
-import InputMonetario from '../../components/atoms/InputMonetario/InputMonetario';
+import InputMonetario from '../../components/atoms/InputMonetario/Index';
 
 
 const Teste: React.FC = () => (

@@ -10,8 +10,6 @@ import Input from '../../atoms/Input/Index';
 import InputCpf from '../../atoms/InputCpf/InputCpf';
 import Button from '../../atoms/Button/Index';
 
-import InputMonetario from '../../atoms/InputMonetario/InputMonetario';
-
 type FormValidacaoDoUsuarioProps = {
   values: {
     cpf: string,
@@ -76,10 +74,6 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
             type="text"
             onChange={handleChange('cpf')}
             defaultValue={values.cpf} />
-
-          <InputMonetario
-            name="money"
-            type="text" />
 
         </div>
 
