@@ -7,7 +7,7 @@ import getValidationsErrors from '../../../utils/getValidationsErrors';
 
 import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
-import InputCpf from '../../atoms/InputCpf/InputCpf';
+import InputCpf from '../../atoms/InputCpf/Index';
 import Button from '../../atoms/Button/Index';
 
 type FormValidacaoDoUsuarioProps = {
@@ -31,15 +31,12 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
 
   const handleSubmit = useCallback( async (data:object) => {
 
-    console.log(data);
-
     try {
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
         email: Yup.string().required('O E-mail é obrigatório.').email('E-mail inválido.'),
         cpf: Yup.string().required('O CPF é obrigatório'),
-        money: Yup.string().required('O Valor é obrigatório')
       });
 
       await schema.validate(data, {
@@ -54,7 +51,7 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
 
       formRef.current?.setErrors(errors);
     }
-  }, [nextStep]);
+  }, []);
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
@@ -79,15 +76,15 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
 
         <div className="botoes">
           <Button
-          className="back"
-          onClick={back}
-          >Retornar
+            className="back"
+            onClick={back}
+            >Retornar
           </Button>
 
           <Button
-          type="submit"
-          className="continue"
-          >Continuar
+            type="submit"
+            className="continue"
+            >Continuar
           </Button>
         </div>
       </div>
