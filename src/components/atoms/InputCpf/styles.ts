@@ -16,7 +16,7 @@ export const Container = styled.div<ContainerProps>`
   padding: 0 16px;
   font-size: 16px;
   display: flex;
-  width: 183px;
+  width: 130px;
 
   align-content: center;
   color: #375f9a;
