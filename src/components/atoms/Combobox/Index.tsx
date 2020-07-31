@@ -34,3 +34,5 @@ const Combobox: React.FC<SelectProps> = ({ name, children, ...rest}) => {
 };
 
 export default Combobox;
+
+// <select defaultValue={} value={}><option value={}> teste </option> </select>

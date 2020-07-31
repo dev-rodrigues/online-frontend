@@ -13,6 +13,8 @@ import InputTelefone from '../../components/atoms/InputTelefone/Index';
 import InputTelefoneCelular from '../../components/atoms/InputTelefoneCelular/Index';
 import Button from '../../components/atoms/Button/Index';
 
+import Combobox_ from '../../components/atoms/Combobox_/Index';
+
 const Teste: React.FC = () => {
 
   const formRef = useRef<FormHandles>(null);
@@ -49,9 +51,12 @@ const Teste: React.FC = () => {
 
             <InputTelefoneCelular name="inptCelular" />
 
+            <Combobox_ name="teste" />
+
             <Button type="submit">
               Enviar
             </Button>
+
 
           </Content>
 
