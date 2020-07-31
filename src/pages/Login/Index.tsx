@@ -27,7 +27,10 @@ interface LoginFormDataProps {
 
 const SignIn: React.FC = () => {
 
-  const { login } = useContext(AuthContext);
+  const { login, nome } = useContext(AuthContext);
+
+  console.log(nome);
+
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: LoginFormDataProps) => {
