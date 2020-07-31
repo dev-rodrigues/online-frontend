@@ -4,6 +4,6 @@ interface AuthContextProps {
   nome: string,
 }
 
-const authContext = createContext<AuthContextProps>({} as AuthContextProps);
+const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
 
-export default authContext;
+export default AuthContext;
