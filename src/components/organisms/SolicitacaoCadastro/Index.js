@@ -9,7 +9,7 @@ import Steps from '../../molecules/Steps/Index';
 class WrapperStepForm extends Component {
 
   state = {
-    step: 2,
+    step: 1,
     cpf: '',
     email: '',
     nome: '',

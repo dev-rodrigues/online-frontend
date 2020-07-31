@@ -16,7 +16,7 @@ export const Container = styled.div<ContainerProps>`
   padding: 0 16px;
   font-size: 16px;
   display: flex;
-  width: 160px;
+  width: 178px;
 
   align-content: center;
   color: #375f9a;
@@ -26,7 +26,7 @@ export const Container = styled.div<ContainerProps>`
   }
 
   input {
-    width: 140px;
+    width: 120px;
     background: transparent;
     border: 0;
 

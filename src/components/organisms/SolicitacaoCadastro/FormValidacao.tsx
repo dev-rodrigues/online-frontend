@@ -8,6 +8,7 @@ import getValidationsErrors from '../../../utils/getValidationsErrors';
 import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
 import InputCpf from '../../atoms/InputCpf/InputCpf';
+import InputCnpj from '../../atoms/InputCnpj/InputCnpj';
 import Button from '../../atoms/Button/Index';
 
 type FormValidacaoDoUsuarioProps = {
@@ -38,7 +39,7 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
 
       const schema = Yup.object().shape({
         email: Yup.string().required('O E-mail é obrigatório.').email('E-mail inválido.'),
-        cpf: Yup.string().required('O CPF é obrigatório')
+        cpf: Yup.string().required('O CPF é obrigatório'),
       });
 
       await schema.validate(data, {
