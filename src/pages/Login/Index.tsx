@@ -1,10 +1,14 @@
-import React, { useContext, useRef, useCallback } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useCallback
+} from 'react';
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
-import AuthContext from '../../hooks/AuthContext';
+import { AuthContext } from '../../hooks/AuthContext';
 import getValidations from '../../utils/getValidationsErrors';
 
 import logoImg from '../../assets/logocptec.png';
@@ -16,12 +20,17 @@ import Label from '../../components/atoms/Label/Index';
 import Input from '../../components/atoms/Input/Index';
 import Button from '../../components/atoms/Button/Index';
 
+interface LoginFormDataProps {
+  usuario: string,
+  senha: string
+}
+
 const SignIn: React.FC = () => {
 
-  const auth = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(async (data: Object) => {
+  const handleSubmit = useCallback(async (data: LoginFormDataProps) => {
 
     try {
       formRef.current?.setErrors({});
@@ -35,13 +44,17 @@ const SignIn: React.FC = () => {
         abortEarly: false,
       })
 
+      login({
+        usuario: data.usuario,
+        senha: data.senha
+      });
+
     } catch (err) {
       const errors = getValidations(err);
       formRef.current?.setErrors(errors);
     }
 
-  }, []);
-
+  }, [ login ]);
 
   return (
     <Background>
@@ -85,7 +98,7 @@ const SignIn: React.FC = () => {
           <a href="http://www.coppetec.coppe.ufrj.br/site/contato.php" target="_blank">Ajuda</a>
         </p>
         <p>© 2020, GTIC - Fundação COPPETEC</p>
-        <p>Versão 3.6.2</p>
+        <p>Versão 1.0</p>
       </Footer>
 
     </Background>

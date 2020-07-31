@@ -1,15 +1,15 @@
 import React from 'react';
 
 import { ToastProvider } from './ToastContext';
-import AuthContext from './AuthContext';
+import {AuthProvider} from './AuthContext';
 
 
 const AppProvider: React.FC = ({children}) => (
-  <AuthContext.Provider value={{nome: 'carlos'}}>
+  <AuthProvider>
     <ToastProvider>
       {children}
     </ToastProvider>
-  </AuthContext.Provider>
+  </AuthProvider>
 )
 
 export default AppProvider;
