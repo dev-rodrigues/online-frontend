@@ -19,14 +19,14 @@ export const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
 export const AuthProvider: React.FC = ({ children }) => {
 
-  const login = useCallback( async ( {email, senha} ) => {
-
+  const login = useCallback( async ( {usuario, senha} ) => {
+    console.log(`usuario: ${usuario} - senha: ${senha}`)
     const response = await api.post('login', {
-      email,
+      usuario,
       senha
     });
 
-    console.log(response.data);
+    console.log(response);
 
   }, []);
 
