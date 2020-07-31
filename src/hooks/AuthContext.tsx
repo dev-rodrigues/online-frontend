@@ -17,32 +17,39 @@ interface AuthContextData {
 }
 
 interface AuthState {
-  token: string;
-  user: object;
+  authorization: string;
 }
 
 export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
 
-  // const [data, setData] = useState<AuthState>(() => {
+  const [data, setData] = useState<AuthState>(() => {
+    const authorization = localStorage.getItem('@online:token');
 
-  // });
+    if (authorization) {
+      return {authorization}
+    }
 
-  const login = useCallback( async ( {email, senha} ) => {
+    return {} as AuthState;
+  });
+
+  const login = useCallback( async ( {usuario, senha} ) => {
 
     const response = await api.post('login', {
-      email,
+      usuario,
       senha
     });
 
     const { authorization } = response.headers;
-    localStorage.setItem('@coppetec:token', authorization);
+    localStorage.setItem('@online:token', authorization);
+
+    setData({authorization});
 
   }, []);
 
   return(
-    <AuthContext.Provider value={{nome: "Carlos", login}}>
+    <AuthContext.Provider value={{nome: data.authorization, login}}>
       {children}
     </AuthContext.Provider>
   )
