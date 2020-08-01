@@ -14,6 +14,7 @@ interface LoginCredentials {
 interface AuthContextData {
   nome: string,
   login(credentials: LoginCredentials): Promise<void>,
+  logout():void,
 }
 
 interface AuthState {
@@ -42,14 +43,25 @@ export const AuthProvider: React.FC = ({ children }) => {
     });
 
     const { authorization } = response.headers;
+
+    // IR EM localhost:8080/usuario -> buscar dados do usuario
+
     localStorage.setItem('@online:token', authorization);
 
     setData({authorization});
 
   }, []);
 
+
+  const logout = useCallback(() => {
+    localStorage.removeItem('@online:token');
+    // remover localstorage dos dados do usuario
+
+    setData({} as AuthState);
+  }, []);
+
   return(
-    <AuthContext.Provider value={{nome: data.authorization, login}}>
+    <AuthContext.Provider value={{nome: data.authorization, login, logout}}>
       {children}
     </AuthContext.Provider>
   )
