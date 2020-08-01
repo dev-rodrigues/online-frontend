@@ -9,6 +9,7 @@ import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
 import InputCpf from '../../atoms/InputCpf/Index';
 import Button from '../../atoms/Button/Index';
+import Content from '../../atoms/Content/Index';
 
 type FormValidacaoDoUsuarioProps = {
   values: {
@@ -51,11 +52,11 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
 
       formRef.current?.setErrors(errors);
     }
-  }, []);
+  }, [nextStep]);
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
-      <div>
+      <Content>
         <div>
           <Label>Email:</Label>
           <Input
@@ -87,7 +88,7 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
             >Continuar
           </Button>
         </div>
-      </div>
+      </Content>
     </Form>
     )
   }

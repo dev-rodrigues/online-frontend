@@ -1,5 +1,4 @@
 import React, {
-  useContext,
   useRef,
   useCallback
 } from 'react';
@@ -8,11 +7,13 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
-import { AuthContext } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 import getValidations from '../../utils/getValidationsErrors';
+import { useToast } from '../../hooks/ToastContext';
 
 import logoImg from '../../assets/logocptec.png';
 import { Recuperacao, Footer } from './styles';
+
 import Background from '../../components/atoms/Background/Index';
 import Root from '../../components/atoms/Root/Index';
 import Content from '../../components/atoms/Content/Index';
@@ -27,9 +28,8 @@ interface LoginFormDataProps {
 
 const SignIn: React.FC = () => {
 
-  const { login, nome } = useContext(AuthContext);
-
-  console.log(nome);
+  const { login } = useAuth();
+  const { addToast } = useToast();
 
   const formRef = useRef<FormHandles>(null);
 
@@ -45,19 +45,29 @@ const SignIn: React.FC = () => {
 
       await schema.validate(data, {
         abortEarly: false,
-      })
+      });
 
-      login({
+      await login({
         usuario: data.usuario,
         senha: data.senha
       });
 
     } catch (err) {
-      const errors = getValidations(err);
-      formRef.current?.setErrors(errors);
-    }
 
-  }, [ login ]);
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidations(err);
+        formRef.current?.setErrors(errors);
+        return;
+      }
+
+      addToast({
+        type: 'error',
+        title: 'Erro na autenticação',
+        description: 'Ocorreu um erro ao fazer login, verifique as credenciais'
+      })
+
+    }
+  }, [ login, addToast ]);
 
   return (
     <Background>
@@ -66,23 +76,23 @@ const SignIn: React.FC = () => {
 
         <Content className="content">
 
-          <div className="logo">
-            <img src={logoImg} alt="Coppetec"/>
-          </div>
+            <div className="logo">
+              <img src={logoImg} alt="Coppetec"/>
+            </div>
 
-          <Form ref={formRef} onSubmit={handleSubmit}>
+            <Form ref={formRef} onSubmit={handleSubmit}>
 
-            <Label>Usuário</Label>
-            <Input name="usuario" placeholder="Informe seu usuário"/>
+              <Label>Usuário</Label>
+              <Input name="usuario" placeholder="Informe seu usuário"/>
 
-            <Label>Senha</Label>
-            <Input name="senha" placeholder="Informe sua senha" type="password"/>
+              <Label>Senha</Label>
+              <Input name="senha" placeholder="Informe sua senha" type="password"/>
 
-            <Button type="submit">Entrar</Button>
+              <Button type="submit">Entrar</Button>
 
-            <Link to="/solicitacao-cadastro">Não tem acesso? Cadastre-se</Link>
+              <Link to="/solicitacao-cadastro">Não tem acesso? Cadastre-se</Link>
 
-          </Form>
+            </Form>
 
         </Content>
 

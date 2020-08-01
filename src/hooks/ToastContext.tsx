@@ -6,8 +6,7 @@ import React, {
 } from 'react';
 import {uuid} from 'uuidv4';
 
-import Toast from '../components/molecules/ToastContainer/Index';
-
+import ToastContainer from '../components/molecules/ToastContainer/Index';
 
 interface ToastContextData {
   addToast(message: Omit<ToastMessage, 'id'>): void;
@@ -44,7 +43,7 @@ const ToastProvider: React.FC = ( {children} ) => {
   return (
     <ToastContext.Provider value={{addToast, removeToast}} >
       {children}
-      <Toast messages={messages}/>
+      <ToastContainer messages={messages}/>
     </ToastContext.Provider>
   )
 }

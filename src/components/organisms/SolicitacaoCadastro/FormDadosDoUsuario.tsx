@@ -14,6 +14,7 @@ import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
 import Button from '../../atoms/Button/Index';
 import Combobox from '../../atoms/Combobox/Index';
+import Content from '../../atoms/Content/Index';
 
 type FormDadosDoUsuarioProps = {
   values: {
@@ -85,7 +86,7 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
 
   return (
     <Form ref={formRef} onSubmit={ handleSubmit }>
-      <div>
+      <Content>
         <div>
             <Label>Nome:</Label>
             <Input
@@ -132,7 +133,7 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
           </Button>
         </div>
 
-      </div>
+      </Content>
     </Form>
   )
 

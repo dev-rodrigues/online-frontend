@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
@@ -29,4 +29,22 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     padding: 20px;
   }
+`;
+
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+`;
+
+export const AnimationContainer = styled.div`
+
+  animation: ${appearFromLeft} 1s;
 `;
