@@ -17,7 +17,7 @@ const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Login} />
     <Route path="/solicitacao-cadastro" component={Cadastro} />
-    <Route path="/confirma_email_usuario" component={CadastroConfirmar} />
+    <Route path="/confirma_email_usuario/:idConfirmacao" component={CadastroConfirmar} />
 
     <Route path="/esqueci-minha-senha" component={TrocaSenha} />
     <Route path="/esqueci-meu-usuario" component={EsqueciMeuUsuario} />
