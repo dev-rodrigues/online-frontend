@@ -39,8 +39,9 @@ const InputCpf: React.FC<InputProps> = ( { name, icon: Icon, ...rest } ) => {
     setIsFocused(true)
   }, []);
 
+
   const handlKeyUp = useCallback((event: React.FormEvent<HTMLInputElement>) => {
-    event.currentTarget.maxLength = 14;
+    event.currentTarget.maxLength = 11;
     let value = event.currentTarget.value;
     value = value.replace(/\D/g, "");
     value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");

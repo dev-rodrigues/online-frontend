@@ -6,26 +6,37 @@ import React, {
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup  from 'yup';
+import { Link, useHistory } from 'react-router-dom';
 
 import getValidationsErrors from '../../../utils/getValidationsErrors';
 import { useToast } from '../../../hooks/ToastContext';
+import api from '../../../services/api';
 
 import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
+
+import InputTelefone from '../../atoms/InputTelefone/Index';
+import InputCelular from '../../atoms/InputTelefoneCelular/Index';
+
 import Button from '../../atoms/Button/Index';
 import Combobox from '../../atoms/Combobox/Index';
 import Content from '../../atoms/Content/Index';
 
 type FormDadosDoUsuarioProps = {
   values: {
-    nome: string,
-    telefone: string,
-    celular: string,
-    localizacao: string,
-    tipoCadastro: string,
+    cpf: string,
+    email: string,
   };
   handleChange: Function;
   prevStep: Function;
+}
+
+interface CadastroProps {
+  nome: string,
+  telefone: string,
+  celular: string,
+  localizacao: string,
+  tipoCadastro: string,
 }
 
 const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep}) => {
@@ -35,10 +46,10 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
   const formRef = useRef<FormHandles>(null);
 
   const { addToast } = useToast();
+  const history = useHistory();
 
-  const handleSubmit = useCallback( async (data:object) => {
+  const handleSubmit = useCallback( async ( data:CadastroProps ) => {
     try {
-
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
@@ -56,21 +67,40 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
         abortEarly: false,
       });
 
+
+      await api.post('cadastrar', {
+        'nome': data.nome,
+        'email': values.email,
+        'cpf': values.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"),
+        'telefoneComercial': data.telefone,
+        'celular': data.celular,
+        'localizacao': data.localizacao,
+        'tipoCadastro': tipoCadastro
+      });
+
+      history.push('/');
+
+      addToast({
+        type: 'success',
+        title: 'Cadastro solicitado com sucesso',
+        description: 'Aguarde o e-mail de confirmação'
+      })
+
     } catch(err) {
 
       if (err instanceof Yup.ValidationError ) {
         const errors = getValidationsErrors(err);
         formRef.current?.setErrors(errors);
-      } else {
-        addToast(
-          {
-            type: 'error',
-            title: "Erro na solicitação",
-            description: 'Informe o tipo de cadastro'
-          }
-        );
+        return;
       }
 
+      addToast(
+        {
+          type: 'error',
+          title: "Dados inválidos",
+          description: 'CPF ou E-mail inválidos'
+        }
+      );
 
     }
 
@@ -91,26 +121,20 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
             <Label>Nome:</Label>
             <Input
               name="nome"
-              placeholder="Informe o nome completo"
-              defaultValue={values.nome} />
+              placeholder="Informe o nome completo"/>
 
             <Label>Telefone Comercial:</Label>
-            <Input
-              name="telefone"
-              placeholder="Informe o seu telefone comercial"
-              defaultValue={values.telefone} />
+            <InputTelefone
+              name="telefone"/>
 
             <Label>Telefone Celular:</Label>
-            <Input
-              name="celular"
-              placeholder="Informe o seu telefone celular"
-              defaultValue={values.celular} />
+            <InputCelular
+              name="celular"/>
 
             <Label>Localização:</Label>
             <Input
               name="localizacao"
-              placeholder="Informe sua localização no campus"
-              defaultValue={values.localizacao} />
+              placeholder="Informe sua localização no campus"/>
 
             <Label>Tipo de Cadastro</Label>
             <Combobox name="tipoCadastro" onChange={handleCombobox} >

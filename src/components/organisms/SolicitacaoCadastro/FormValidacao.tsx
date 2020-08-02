@@ -3,7 +3,9 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup  from 'yup';
 
+import api from '../../../services/api';
 import getValidationsErrors from '../../../utils/getValidationsErrors';
+import { useToast } from '../../../hooks/ToastContext';
 
 import Label from '../../atoms/Label/Index';
 import Input from '../../atoms/Input/Index';
@@ -21,16 +23,21 @@ type FormValidacaoDoUsuarioProps = {
   prevStep: Function;
 }
 
+interface FormDataProps {
+  cpf: string
+  email: string,
+}
+
 const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleChange, prevStep, nextStep}) => {
 
   const formRef = useRef<FormHandles>(null);
-
+  const { addToast } = useToast();
 
   function back(): void {
     prevStep();
   }
 
-  const handleSubmit = useCallback( async (data:object) => {
+  const handleSubmit = useCallback( async (data:FormDataProps) => {
 
     try {
       formRef.current?.setErrors({});
@@ -44,13 +51,26 @@ const FormValidacao: React.FC<FormValidacaoDoUsuarioProps> = ({values, handleCha
         abortEarly: false,
       });
 
+      await api.post('cadastrar/validar', {
+        'email': data.email,
+        'cpf': data.cpf
+      })
       nextStep();
 
     } catch(err) {
 
-      const errors = getValidationsErrors(err);
+      if (err instanceof Yup.ValidationError ) {
+        const errors = getValidationsErrors(err);
+        formRef.current?.setErrors(errors);
+        return;
+      }
 
-      formRef.current?.setErrors(errors);
+      addToast({
+        type: 'error',
+        title: "Erro na solicitação",
+        description: 'CPF ou E-mail inválidos'
+      })
+
     }
   }, [nextStep]);
 
