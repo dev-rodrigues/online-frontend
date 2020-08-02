@@ -33,24 +33,6 @@ const FormRecaptcha: React.FC<FormRecaptchaProps> = ({ nextStep }) => {
     }
   }, [verificado]);
 
-  // continue = e => {
-  //   e.preventDefault();
-
-  //   if (this.state.verificado) {
-  //     this.props.nextStep();
-  //   } else {
-
-  //   }
-  // }
-
-  // verificar = response => {
-  //   if (response) {
-  //     this.setState({
-  //       verificado: true
-  //     })
-  //   }
-  // }
-
   return (
     <div>
       <div>
