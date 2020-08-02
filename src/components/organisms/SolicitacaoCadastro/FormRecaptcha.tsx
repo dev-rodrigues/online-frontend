@@ -25,13 +25,13 @@ const FormRecaptcha: React.FC<FormRecaptchaProps> = ({ nextStep }) => {
       title: 'O captcha deve ser preenchido corretamente.'
     })
 
-  }, [verificado]);
+  }, [verificado, addToast, nextStep]);
 
   const verify = useCallback((response) => {
     if (response) {
       setVerificado(true)
     }
-  }, [verificado]);
+  }, [setVerificado]);
 
   return (
     <div>

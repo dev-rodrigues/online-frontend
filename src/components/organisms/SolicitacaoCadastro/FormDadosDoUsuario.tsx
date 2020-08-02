@@ -6,7 +6,7 @@ import React, {
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup  from 'yup';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import getValidationsErrors from '../../../utils/getValidationsErrors';
 import { useToast } from '../../../hooks/ToastContext';
@@ -67,7 +67,6 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
         abortEarly: false,
       });
 
-
       await api.post('cadastrar', {
         'nome': data.nome,
         'email': values.email,
@@ -104,7 +103,7 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
 
     }
 
-  }, [tipoCadastro, addToast]);
+  }, [tipoCadastro, addToast, values, history]);
 
   const handleCombobox = useCallback( async (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTipoCadastro(event.currentTarget.value);
