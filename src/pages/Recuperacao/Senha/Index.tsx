@@ -8,7 +8,8 @@ import Title from '../../../components/atoms/Title/SimpleTitle/Index';
 import Recaptcha from '../../../components/atoms/Recaptcha/Index';
 
 import Label from '../../../components/atoms/Label/Index';
-import Input from '../../../components/atoms/Input/Index';
+import Cpf from '../../../components/atoms/InputCpf/Index';
+
 import Button from '../../../components/atoms/Button/Index';
 
 const Index: React.FC = () => {
@@ -27,13 +28,23 @@ const Index: React.FC = () => {
         <Content>
           <Title
             titulo="Esqueci minha senha"
-            subtitulo="Confirme seu CPF"/>
-          <Form onSubmit={() => console.log(verificado)}>
-            <Label>CPF</Label>
-            <Input name="cpf"/>
-            <Recaptcha verificar={verificarCaptcha}/>
-            <Button>Enviar</Button>
-          </Form>
+            margin={[50, 0, 0, 0]}
+            subtitulo="Confirme seu CPF"
+            sizeSubtitulo={20}
+            align='center'
+            />
+
+            <Form onSubmit={() => console.log(verificado)}>
+
+              <Label>CPF</Label>
+              <Cpf name="cpf"/>
+              <Recaptcha verificar={verificarCaptcha}/>
+              <Button type="submit">
+                Enviar
+              </Button>
+
+            </Form>
+
         </Content>
       </Root>
     </Background>
