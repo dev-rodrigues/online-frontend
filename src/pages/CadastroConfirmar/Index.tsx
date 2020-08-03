@@ -2,7 +2,9 @@ import React, {
    useEffect,
    useState,
 } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import {
+  useRouteMatch,
+} from 'react-router-dom';
 
 import { useToast } from '../../hooks/ToastContext';
 import api from '../../services/api';
@@ -58,10 +60,24 @@ const CadastroConfirmar: React.FC = () => {
         <Content>
         { emailConfirmacao !== '' ? (
           <Title
-          titulo="Solicitação de Cadastro de Usuário"
-          subtitulo={`Seu email foi confirmado. Quando sua solicitação for processada um email de notificação será enviado para ${emailConfirmacao}`}/>
+            margin={[50, 0, 0, 0]}
+            size={30}
+            titulo="Solicitação de Cadastro de Usuário"
+            subtitulo={`Seu email foi confirmado. Quando sua solicitação for processada um email de notificação será enviado para ${emailConfirmacao}`}
+            sizeSubtitulo={20}
+            retornar
+            destino='/'
+            align='justify'/>
         ) : (
-          <h1>deu ruim</h1>
+          <Title
+            margin={[50, 0, 0, 0]}
+            size={40}
+            titulo="Solicitação de Cadastro de Usuário"
+            sizeSubtitulo={20}
+            subtitulo='Solicitação inválida.'
+            retornar
+            destino='/'
+            align='center' />
         )}
 
         </Content>
