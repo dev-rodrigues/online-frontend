@@ -6,19 +6,19 @@ import { Form } from '@unform/web';
 import { useHistory } from 'react-router-dom';
 
 
-import { useToast } from '../../../hooks/ToastContext';
-import api from '../../../services/api';
+import { useToast } from '../../../../hooks/ToastContext';
+import api from '../../../../services/api';
 
-import Background from '../../../components/atoms/Background';
-import Root from '../../../components/atoms/Root';
-import Content from '../../../components/atoms/Content';
-import Title from '../../../components/atoms/Title/SimpleTitle';
-import Recaptcha from '../../../components/atoms/Recaptcha';
+import Background from '../../../../components/atoms/Background';
+import Root from '../../../../components/atoms/Root';
+import Content from '../../../../components/atoms/Content';
+import Title from '../../../../components/atoms/Title/SimpleTitle';
+import Recaptcha from '../../../../components/atoms/Recaptcha';
 
-import Label from '../../../components/atoms/Label';
-import Input from '../../../components/atoms/Input';
+import Label from '../../../../components/atoms/Label';
+import Input from '../../../../components/atoms/Input';
 
-import Button from '../../../components/atoms/Button';
+import Button from '../../../../components/atoms/Button';
 
 interface RecuperacaoSenhaProps {
   login: string

@@ -3,15 +3,15 @@ import { Switch } from 'react-router-dom';
 
 import Route from './Route';
 
-import Login from '../pages/Login/Index';
+import Login from '../pages/Login';
 
-import Cadastro from '../pages/Cadastro/Index';
-import CadastroConfirmar from '../pages/CadastroConfirmar/Index';
+import Cadastro from '../pages/Cadastro';
+import CadastroConfirmar from '../pages/CadastroConfirmar';
 
-import TrocaSenha from '../pages/Recuperacao/Senha/Index';
-import EsqueciMeuUsuario from '../pages/Recuperacao/Usuario/Index';
+import TrocaSenha from '../pages/Recuperacao/Solicitacao/Senha';
+import EsqueciMeuUsuario from '../pages/Recuperacao/Solicitacao/Usuario';
 
-import Home from '../pages/Home/Index';
+import Home from '../pages/Home';
 
 const Routes: React.FC = () => (
   <Switch>
