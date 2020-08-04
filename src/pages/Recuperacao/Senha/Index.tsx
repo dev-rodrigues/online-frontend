@@ -81,7 +81,7 @@ const Index: React.FC = () => {
           <Title
             titulo="Esqueci minha senha"
             margin={[50, 0, 0, 0]}
-            subtitulo="Confirme seu CPF"
+            subtitulo="Informe seu usuário"
             sizeSubtitulo={20}
             align='center'
             />
