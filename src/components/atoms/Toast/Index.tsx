@@ -22,7 +22,7 @@ const Toast: React.FC<ToastContainerProps> = ( {message, style} ) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       removeToast(message.id)
-    }, 3000);
+    }, 10000);
 
     // se o usuario fechar antes de estourar o tempo, mata o timer
     return () => {
