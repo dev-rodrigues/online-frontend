@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {Form} from '@unform/web';
 
 import SimpleTitle from '../../../../components/atoms/SimpleTitle/Index';
-import Input from '../../../../components/atoms/Input/Index';
-import Recaptcha from '../../../../components/atoms/Recaptcha/Index';
-import Button from '../../../atoms/Button/Index';
+import Input from '../../../atoms/Input';
+import Recaptcha from '../../../atoms/Recaptcha';
+import Button from '../../../atoms/Button';
 import SimpleForm from '../../../molecules/SimpleForm/index';
-import Label from '../../../atoms/Label/Index';
+import Label from '../../../atoms/Label';
 
 import {} from './styles';
 

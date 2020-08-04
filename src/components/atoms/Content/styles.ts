@@ -29,6 +29,16 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     padding: 20px;
   }
+
+  .retornar {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      align-items: center;
+      display: flex;
+    }
+  }
 `;
 
 const appearFromLeft = keyframes`

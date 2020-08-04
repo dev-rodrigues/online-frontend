@@ -5,19 +5,20 @@ import React, {
 import { Form } from '@unform/web';
 import { useHistory } from 'react-router-dom';
 
+
 import { useToast } from '../../../hooks/ToastContext';
 import api from '../../../services/api';
 
-import Background from '../../../components/atoms/Background/Index';
-import Root from '../../../components/atoms/Root/Index';
-import Content from '../../../components/atoms/Content/Index';
-import Title from '../../../components/atoms/Title/SimpleTitle/Index';
-import Recaptcha from '../../../components/atoms/Recaptcha/Index';
+import Background from '../../../components/atoms/Background';
+import Root from '../../../components/atoms/Root';
+import Content from '../../../components/atoms/Content';
+import Title from '../../../components/atoms/Title/SimpleTitle';
+import Recaptcha from '../../../components/atoms/Recaptcha';
 
-import Label from '../../../components/atoms/Label/Index';
-import Input from '../../../components/atoms/Input/Index';
+import Label from '../../../components/atoms/Label';
+import Input from '../../../components/atoms/Input';
 
-import Button from '../../../components/atoms/Button/Index';
+import Button from '../../../components/atoms/Button';
 
 interface RecuperacaoSenhaProps {
   login: string
@@ -73,7 +74,10 @@ const Index: React.FC = () => {
   return (
     <Background>
       <Root>
-        <Content>
+        <Content
+          navegar
+          destino="/"
+          destinoInfo="Retornar">
           <Title
             titulo="Esqueci minha senha"
             margin={[50, 0, 0, 0]}

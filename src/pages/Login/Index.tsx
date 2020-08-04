@@ -14,12 +14,12 @@ import { useToast } from '../../hooks/ToastContext';
 import logoImg from '../../assets/logocptec.png';
 import { Recuperacao, Footer } from './styles';
 
-import Background from '../../components/atoms/Background/Index';
-import Root from '../../components/atoms/Root/Index';
-import Content from '../../components/atoms/Content/Index';
-import Label from '../../components/atoms/Label/Index';
-import Input from '../../components/atoms/Input/Index';
-import Button from '../../components/atoms/Button/Index';
+import Background from '../../components/atoms/Background';
+import Root from '../../components/atoms/Root';
+import Content from '../../components/atoms/Content';
+import Label from '../../components/atoms/Label';
+import Input from '../../components/atoms/Input';
+import Button from '../../components/atoms/Button';
 
 interface LoginFormDataProps {
   usuario: string,

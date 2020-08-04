@@ -2,8 +2,8 @@ import React, { useState, useCallback } from 'react';
 
 import { useToast } from '../../../hooks/ToastContext';
 
-import Button from '../../atoms/Button/Index';
-import Recaptcha from '../../atoms/Recaptcha/Index';
+import Button from '../../atoms/Button';
+import Recaptcha from '../../atoms/Recaptcha';
 
 interface FormRecaptchaProps {
   nextStep: Function;

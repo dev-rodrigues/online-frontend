@@ -7,11 +7,11 @@ import api from '../../../services/api';
 import getValidationsErrors from '../../../utils/getValidationsErrors';
 import { useToast } from '../../../hooks/ToastContext';
 
-import Label from '../../atoms/Label/Index';
-import Input from '../../atoms/Input/Index';
-import InputCpf from '../../atoms/InputCpf/Index';
-import Button from '../../atoms/Button/Index';
-import Content from '../../atoms/Content/Index';
+import Label from '../../atoms/Label';
+import Input from '../../atoms/Input';
+import InputCpf from '../../atoms/InputCpf';
+import Button from '../../atoms/Button';
+import Content from '../../atoms/Content';
 
 type FormValidacaoDoUsuarioProps = {
   values: {

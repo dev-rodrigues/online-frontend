@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import Step from '../../atoms/Step/Index';
+import Step from '../../atoms/Step';
 import { Steps } from './Styles';
 
 export default class StepList extends Component {

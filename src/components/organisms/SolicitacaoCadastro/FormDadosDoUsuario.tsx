@@ -12,15 +12,15 @@ import getValidationsErrors from '../../../utils/getValidationsErrors';
 import { useToast } from '../../../hooks/ToastContext';
 import api from '../../../services/api';
 
-import Label from '../../atoms/Label/Index';
-import Input from '../../atoms/Input/Index';
+import Label from '../../atoms/Label';
+import Input from '../../atoms/Input';
 
-import InputTelefone from '../../atoms/InputTelefone/Index';
-import InputCelular from '../../atoms/InputTelefoneCelular/Index';
+import InputTelefone from '../../atoms/InputTelefone';
+import InputCelular from '../../atoms/InputTelefoneCelular';
 
-import Button from '../../atoms/Button/Index';
-import Combobox from '../../atoms/Combobox/Index';
-import Content from '../../atoms/Content/Index';
+import Button from '../../atoms/Button';
+import Combobox from '../../atoms/Combobox';
+import Content from '../../atoms/Content';
 
 type FormDadosDoUsuarioProps = {
   values: {

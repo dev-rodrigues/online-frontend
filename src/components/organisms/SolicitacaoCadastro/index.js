@@ -4,7 +4,7 @@ import FormRecaptcha from './FormRecaptcha';
 import FormValidacao from './FormValidacao';
 import FormDadosDoUsuario from './FormDadosDoUsuario';
 
-import Steps from '../../molecules/Steps/Index';
+import Steps from '../../molecules/Steps';
 
 class WrapperStepForm extends Component {
 
