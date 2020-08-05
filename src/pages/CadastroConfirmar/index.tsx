@@ -2,9 +2,7 @@ import React, {
    useEffect,
    useState,
 } from 'react';
-import {
-  useRouteMatch,
-} from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 
 import { useToast } from '../../hooks/ToastContext';
 import api from '../../services/api';
@@ -19,7 +17,7 @@ interface CadastroConfirmarParams {
   idConfirmacao: string,
 }
 
-interface teste {
+interface RequestResponse {
   'email-confirmacao': string,
 }
 
@@ -35,7 +33,7 @@ const CadastroConfirmar: React.FC = () => {
     async function loadData() : Promise<void> {
 
       try {
-        const response = await api.get<teste>(`cadastrar/confirmar/${params.idConfirmacao}`);
+        const response = await api.get<RequestResponse>(`cadastrar/confirmar/${params.idConfirmacao}`);
         const email = response.data["email-confirmacao"]
         setEmailConfirmacao(email);
 
