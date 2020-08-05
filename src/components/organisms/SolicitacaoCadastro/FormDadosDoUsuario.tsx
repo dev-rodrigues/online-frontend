@@ -19,7 +19,7 @@ import InputTelefone from '../../atoms/InputTelefone';
 import InputCelular from '../../atoms/InputTelefoneCelular';
 
 import Button from '../../atoms/Button';
-import Combobox from '../../atoms/Combobox';
+import Select from '../../atoms/Combobox';
 import Content from '../../atoms/Content';
 
 type FormDadosDoUsuarioProps = {
@@ -41,14 +41,28 @@ interface CadastroProps {
 
 const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep}) => {
 
-  const [tipoCadastro, setTipoCadastro] = useState('x');
-
   const formRef = useRef<FormHandles>(null);
+
+  const [erro, setErro] = useState(false);
+  const [messageErro, setMessageErro] = useState('');
+  const [selecionado, setSelecionado] = useState('');
+
 
   const { addToast } = useToast();
   const history = useHistory();
 
   const handleSubmit = useCallback( async ( data:CadastroProps ) => {
+
+    setErro(false)
+    setMessageErro('');
+
+    if (selecionado === '') {
+      setErro(true)
+      setMessageErro('Informe um tipo de cadastro');
+      return;
+    }
+
+
     try {
       formRef.current?.setErrors({});
 
@@ -58,10 +72,6 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
         celular: Yup.string().required('O celular é obrigatório'),
         localizacao: Yup.string().required('A localização é obrigatória'),
       });
-
-      if (tipoCadastro === 'x') {
-        throw new Error('erro');
-      }
 
       await schema.validate(data,  {
         abortEarly: false,
@@ -74,7 +84,7 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
         'telefoneComercial': data.telefone,
         'celular': data.celular,
         'localizacao': data.localizacao,
-        'tipoCadastro': tipoCadastro
+        'tipoCadastro': data.tipoCadastro
       });
 
       history.push('/');
@@ -103,11 +113,7 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
 
     }
 
-  }, [tipoCadastro, addToast, values, history]);
-
-  const handleCombobox = useCallback( async (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTipoCadastro(event.currentTarget.value);
-  }, []);
+  }, [addToast, values, history, selecionado, setErro, setMessageErro]);
 
   function back(): void {
     prevStep();
@@ -136,11 +142,13 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
               placeholder="Informe sua localização no campus"/>
 
             <Label>Tipo de Cadastro</Label>
-            <Combobox name="tipoCadastro" onChange={handleCombobox} >
-              <option key="x" value="x">--Selecione--</option>
-              <option key="C" value="C">COORDENADOR</option>
-              <option key="O" value="O">OUTROS</option>
-            </Combobox>
+            <Select
+              onChange={(e) => setSelecionado(e.target.value)}
+              name="tipoCadastro"
+              errorMessage={messageErro}
+              erro={erro}
+              options={[ { value : 'O', label: 'Outros' }, { value : 'C', label: 'Coordenador' } ]}
+            />
         </div>
 
         <div className="botoes">

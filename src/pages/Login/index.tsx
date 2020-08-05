@@ -86,7 +86,10 @@ const SignIn: React.FC = () => {
               <Input name="usuario" placeholder="Informe seu usuário"/>
 
               <Label>Senha</Label>
-              <Input name="senha" placeholder="Informe sua senha" type="password"/>
+              <Input
+                name="senha"
+                placeholder="Informe sua senha"
+                type="password"/>
 
               <Button type="submit">Entrar</Button>
 
