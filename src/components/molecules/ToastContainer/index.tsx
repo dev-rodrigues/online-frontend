@@ -17,7 +17,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ( { messages } ) => {
     messages => messages.id,
     {
       from: { right: '-120%' },
-      enter: { right: '0%' },
+      enter: { right: '-5%' },
       leave: { right: '-120%' },
     }
   );

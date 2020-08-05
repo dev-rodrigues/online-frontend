@@ -61,8 +61,7 @@ const Index: React.FC = () => {
 
         addToast({
           type: 'error',
-          title: 'Solicitação inválida',
-          description: 'Solicitação inválida'
+          title: 'Solicitação inválida'
         });
 
       }
@@ -140,7 +139,11 @@ const Index: React.FC = () => {
 
             </Form>
           ) : (
-            <h1>koé cuzao</h1>
+            <Title
+                titulo="Recuperação de senha"
+                subtitulo="Solicitação inválida"
+                size="33"
+                margin={[30, 0, 0, 0]}/>
           )}
 
         </Content>

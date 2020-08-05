@@ -22,7 +22,7 @@ interface ToastProps {
 }
 
 export const ToastElement = styled(animated.div)<ToastProps>`
-  width: 360px;
+  width: 350px;
   position: relative;
   padding: 16px 30px 16px 16px;
 
