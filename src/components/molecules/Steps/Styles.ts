@@ -5,5 +5,5 @@ export const Steps = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin: 20px 0;
+  margin: 3px 0;
 `;

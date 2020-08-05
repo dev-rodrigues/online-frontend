@@ -1,53 +1,47 @@
-import React, { useRef, useEffect } from 'react';
-import MenuPlacer, {
-  OptionTypeBase,
-  Props as SelectProps,
-} from 'react-select';
-import { useField } from '@unform/core';
+import React, {SelectHTMLAttributes} from 'react';
+import { FiAlertCircle } from 'react-icons/fi';
 
-interface Props extends SelectProps<OptionTypeBase> {
+import { SelectItem, Error, Container } from './styles';
+
+interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
   options: Array<{
     value: string,
     label: string
-  }>
+  }>,
+  erro: boolean,
+  errorMessage: string,
 }
 
-const Select: React.FC<Props> = ({ name, options, ...rest }) => {
-
-  const selectRef = useRef(null);
-  const { fieldName, defaultValue, registerField, error } = useField(name);
-
-  useEffect(() => {
-    registerField({
-      name: fieldName,
-      ref: selectRef.current,
-      getValue: (ref: any) => {
-        if (rest.isMulti) {
-          if (!ref.state.value) {
-            return [];
-          }
-          return ref.state.value.map((option: OptionTypeBase) => option.value);
-        }
-        if (!ref.state.value) {
-          return '';
-        }
-        return ref.state.value.value;
-      },
-    });
-  }, [fieldName, registerField, rest.isMulti]);
+const Combobox: React.FC<Props> = ({ name, options, erro, errorMessage, ...rest }) => {
 
   return (
-    <MenuPlacer
-      cacheOptions
-      defaultValue={defaultValue}
-      ref={selectRef}
-      options={options}
-      classNamePrefix="react-select"
-      isMulti={false}
-      {...rest}  >
-    </MenuPlacer>
+
+    <Container>
+
+      { erro && (
+          <Error title={errorMessage} >
+            <FiAlertCircle color="#F55145" size={20} />
+          </Error>
+        )
+      }
+
+      <SelectItem name={name} {...rest}>
+
+        <option disabled selected>-- Selecione --</option>
+
+        {options.map(option => {
+            return (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            )
+          })
+        }
+      </SelectItem>
+
+
+    </Container>
+
   );
 };
 
-export default Select;
+export default Combobox;

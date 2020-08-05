@@ -1,7 +1,8 @@
 import React, {
   useCallback,
   useRef,
-  } from 'react';
+  useState,
+} from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup  from 'yup';
@@ -42,11 +43,25 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
 
   const formRef = useRef<FormHandles>(null);
 
+  const [erro, setErro] = useState(false);
+  const [messageErro, setMessageErro] = useState('');
+  const [selecionado, setSelecionado] = useState('');
+
+
   const { addToast } = useToast();
   const history = useHistory();
 
   const handleSubmit = useCallback( async ( data:CadastroProps ) => {
-    console.log(data)
+
+    setErro(false)
+    setMessageErro('');
+
+    if (selecionado === '') {
+      setErro(true)
+      setMessageErro('Informe um tipo de cadastro');
+      return;
+    }
+
 
     try {
       formRef.current?.setErrors({});
@@ -56,7 +71,6 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
         telefone: Yup.string().required('O telefone é obrigatório'),
         celular: Yup.string().required('O celular é obrigatório'),
         localizacao: Yup.string().required('A localização é obrigatória'),
-        tipoCadastro: Yup.string().required('Informe o tipo de Cadastro')
       });
 
       await schema.validate(data,  {
@@ -99,7 +113,7 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
 
     }
 
-  }, [addToast, values, history]);
+  }, [addToast, values, history, selecionado, setErro, setMessageErro]);
 
   function back(): void {
     prevStep();
@@ -128,10 +142,12 @@ const FormDadosDoUsuario: React.FC<FormDadosDoUsuarioProps> = ({values, prevStep
               placeholder="Informe sua localização no campus"/>
 
             <Label>Tipo de Cadastro</Label>
-            <Select name="tipoCadastro" options={[
-                { value : 'O', label: 'Outros' },
-                { value : 'C', label: 'Coordenador' },
-              ]}
+            <Select
+              onChange={(e) => setSelecionado(e.target.value)}
+              name="tipoCadastro"
+              errorMessage={messageErro}
+              erro={erro}
+              options={[ { value : 'O', label: 'Outros' }, { value : 'C', label: 'Coordenador' } ]}
             />
         </div>
 

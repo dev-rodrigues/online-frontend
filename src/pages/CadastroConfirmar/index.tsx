@@ -50,8 +50,6 @@ const CadastroConfirmar: React.FC = () => {
 
   }, [params, addToast, setEmailConfirmacao]);
 
-
-
   return (
     <Background>
       <Root>
