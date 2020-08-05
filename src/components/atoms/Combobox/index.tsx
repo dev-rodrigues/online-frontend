@@ -1,38 +1,53 @@
-import React, { InputHTMLAttributes, useEffect, useRef  } from 'react';
-import { IconBaseProps } from 'react-icons';
+import React, { useRef, useEffect } from 'react';
+import MenuPlacer, {
+  OptionTypeBase,
+  Props as SelectProps,
+} from 'react-select';
 import { useField } from '@unform/core';
-import { Container } from './styles';
 
-interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
-  name: string,
-  icon?: React.ComponentType<IconBaseProps>;
+interface Props extends SelectProps<OptionTypeBase> {
+  name: string;
+  options: Array<{
+    value: string,
+    label: string
+  }>
 }
 
-const Combobox: React.FC<SelectProps> = ({ name, children, ...rest}) => {
+const Select: React.FC<Props> = ({ name, options, ...rest }) => {
 
-  const { fieldName, defaultValue, error, registerField } = useField(name);
-  const selectRef = useRef<HTMLSelectElement>(null);
+  const selectRef = useRef(null);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
       name: fieldName,
-      ref: selectRef.current?.value,
-      path: 'value'
+      ref: selectRef.current,
+      getValue: (ref: any) => {
+        if (rest.isMulti) {
+          if (!ref.state.value) {
+            return [];
+          }
+          return ref.state.value.map((option: OptionTypeBase) => option.value);
+        }
+        if (!ref.state.value) {
+          return '';
+        }
+        return ref.state.value.value;
+      },
     });
-
-  }, [fieldName, registerField]);
+  }, [fieldName, registerField, rest.isMulti]);
 
   return (
-    <Container
+    <MenuPlacer
+      cacheOptions
       defaultValue={defaultValue}
       ref={selectRef}
-      {...rest}>
-        {children}
-        {error}
-    </Container>
-  )
+      options={options}
+      classNamePrefix="react-select"
+      isMulti={false}
+      {...rest}  >
+    </MenuPlacer>
+  );
 };
 
-export default Combobox;
-
-// <select defaultValue={} value={}><option value={}> teste </option> </select>
+export default Select;
